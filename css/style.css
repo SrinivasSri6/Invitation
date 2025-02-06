@@ -141,3 +141,12 @@ button.nextBtn img { margin-left: 5px; }
 @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} } 
 @-webkit-keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} } 
 @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+
+@media screen and (min-width: 360px) 
+{
+   .wrapper{
+    padding-top: 0px !important;
+   }
+    
+  }
