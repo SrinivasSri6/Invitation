@@ -20,33 +20,38 @@
 })();
 function copyToClipboard(id) {
     var from = document.getElementById(id);
-    var range = document.createRange();
-    window.getSelection().removeAllRanges();
-    range.selectNode(from);
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-    window.getSelection().removeAllRanges();
-
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-}
-var countDownDate = new Date("Jan 26, 2019 10:00:00").getTime();
-var x = setInterval(function () {
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-    $(".days").text(days);
-    $(".hours").text(hours);
-    $(".minutes").text(minutes);
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+    
+    if (!from) {
+        console.error("Element not found: " + id);
+        return;
     }
-}, 1000);
+
+    var textToCopy = from.value || from.innerText; // Get text from input or span
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            var snackbar = document.getElementById("snackbar");
+            snackbar.className = "show";
+            setTimeout(() => snackbar.className = snackbar.className.replace("show", ""), 3000);
+        })
+        .catch(err => console.error("Failed to copy: ", err));
+}
+
+// var countDownDate = new Date("Jan 26, 2019 10:00:00").getTime();
+// var x = setInterval(function () {
+//     var now = new Date().getTime();
+//     var distance = countDownDate - now;
+//     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+//     $(".days").text(days);
+//     $(".hours").text(hours);
+//     $(".minutes").text(minutes);
+//     if (distance < 0) {
+//         clearInterval(x);
+//         document.getElementById("demo").innerHTML = "EXPIRED";
+//     }
+// }, 1000);
 
 
 
@@ -193,6 +198,39 @@ function animate() {
 
 initCanvas();
 animate();
+
+function submitMessage() {
+    let groomMessage = document.getElementById("groomMessage").value;
+    let brideMessage = document.getElementById("brideMessage").value;
+
+    if (!groomMessage || !brideMessage) {
+        alert("Please enter messages for both Groom and Bride.");
+        return;
+    }
+
+    let url = "https://script.google.com/macros/s/AKfycbzX0LnVzcUj1LqRop_vGFFIww9S1Dh1kHLlmjHVarF4yHdfBLvakqeUSQQ6GtpxNlm36Q/exec";
+
+    let data = {
+        groom: groomMessage,
+        bride: brideMessage
+    };
+
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors", // Prevents CORS blocking but doesn't return a response
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(() => {
+        alert("Your message has been submitted!");
+        document.getElementById("groomMessage").value = "";
+        document.getElementById("brideMessage").value = "";
+    })
+    .catch(error => console.error("Error:", error));
+}
+
 
 // // This is just for demo purposes :
 // for (let i = 1; i < 110; i++) {
