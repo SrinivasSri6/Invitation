@@ -34,10 +34,10 @@
         <div class="leaf"></div>
         <div class="letter-box">
           <div class="invitee">Dear, <span class="personName"></span></div>
-          <div class="invitation nave2">Together with their Family</div>
-          <div class="inviters nave1">Naveen<br />&<br />Svarupaa</div>
-          <div class="invitation nave" font-size:50px;>Gladly inviting you to join us as we celebrate 
-            the beginning of our forever</div>
+          <div class="invitation nave2">Together with our Family,</div>
+          <div class="inviters nave1">Naveen Sabari Guru V S<br />&<br />Sathyasvarupaa S</div>
+          <div class="invitation nave" font-size:35px;>Gladly inviting you to join us as we celebrate, </br>
+            💛The Beginning of Our Forever💛</div>
         </div>
         <button class="nextBtn">Next <img src="images/next.svg" alt="next" width="12"></button>
       </div>
@@ -77,17 +77,17 @@
         <button class="prevBtn"><img src="images/prev.svg" alt="Previous" width="12"> Prev</button>
         <div class="leaf"></div>
         <div class="letter-box">
-          <div class="wrap-box n6">
-            <span class="label-box">Venue</span>
-          </div>
-          
           <div class="wrap-box">
-            <div class="address n5">Reception</div>
+            <div class="address n5">Reception Venue</div>
             <a class="label-box n7" target="_blank" href="https://maps.app.goo.gl/zXNxSPG62LBRfaCx9">Get Direction</a>
           </div>
           <div class="wrap-box">
-            <div class="address n5">Marriage</div>
+            <div class="address n5">Marriage Venue</div>
             <a class="label-box n7" target="_blank" href=" https://maps.app.goo.gl/wyNGiHYWB8sDfkGT6">Get Direction</a>
+          </div>
+          <div class="wrap-box">
+            <div class="address n5">Phone / RSVP</div>
+            <a class="label-box n7" href="tel:+916381564402">Call Now</a>
           </div>
           
         </div>
@@ -111,14 +111,35 @@
               <span onclick="copyToClipboard('NaveenWedsSvarupaa')">#NaveenWedsSvarupaa</span>
               </div>
               <div class="Hashs n9">
+                <span onclick="copyToClipboard('Mac&Microscope')">#Mac&Microscope</span><br/>
+              <div class="Hashs n9">
               <span onclick="copyToClipboard('DevWedsDoc')">#DevWedsDoc</span><br/>
+              <div class="n10"><br/>we’re eagerly waiting for you !<br/>wait, there's more</div>
             </div>
-              <div class="n10"><br/>we’re eagerly waiting for you !</div>
             </div>
           </div>
         </div>
+        <button class="nextBtn">Next <img src="images/next.svg" alt="next" width="12"></button>
       </div>
     </div>
+    <div class="wrapper">
+      <div class="clash-card barbarian">
+        <button class="prevBtn"><img src="images/prev.svg" alt="Previous" width="12"> Prev</button>
+        <div class="leaf"></div>
+        <div class="letter-box">
+            <div class="address n5">Your Words, Our Memories</div>
+            <div class="message-label">For Groom</div>
+          <div class="wrap-box">
+            <textarea id="groomMessage" placeholder="Good Words Please!"></textarea>
+          </div>
+            <div class="message-label">For Bride</div>
+          <div class="wrap-box">
+            <textarea id="brideMessage" placeholder="A Toast to the Bride!"></textarea>
+          </div>
+          <button class="submitBtn" onclick="submitMessage()">Submit</button>
+        </div>
+      </div>
+    </div>    
   </div>
   <div id="snackbar">Copied</div>
   <div class="hideFromUser">

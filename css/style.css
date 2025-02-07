@@ -20,7 +20,7 @@ canvas {display: block; position: absolute; /* touch-action: none;*/ top: 0;left
 .letter-box { position: absolute; top: 30%; width: 100%; font-size: 20px; letter-spacing: 0.5px; }
 .invitee { margin-bottom: 25px; font-size: 14px; margin-top: 20px;}
 span.personName { font-size: 20px; }    
-.inviters { font-size: 24px; padding: 20px 0; line-height: 30px; }
+.inviters { font-size: 20px; padding: 20px 0; line-height: 30px; }
 .wrap-box { padding: 10px 0 20px 0; } 
 .invitation {font-weight: 400; font-size: 18px; letter-spacing: 0.6px; line-height: 24px; }
 .label-box, .label-box:hover, .label-box:visited { background-color: #FBDE79; color: rgb(4, 36, 47); font-size: 16px; font-weight: 700; border-radius: 10px; padding: 5px 10px; letter-spacing: 1px; }
@@ -66,7 +66,7 @@ button.nextBtn img { margin-left: 5px; }
 
 .nave1
 {
-    font-size: 38px;
+    font-size: 30px;
 }
 
 .nave2
@@ -130,6 +130,70 @@ button.nextBtn img { margin-left: 5px; }
 {
     padding-bottom: 30px;
 }
+
+.rsvp {
+    font-size: 14px;
+    color: #FBDE79; /* Match the golden color theme */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.submitBtn {
+    font-family: 'Charm', cursive;
+    font-size: 18px;
+    background: linear-gradient(90deg, #FBDE79 0%, #FFD700 50%, #FBDE79 100%);
+    color: rgb(4, 36, 47);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    margin: auto;
+    display: block;
+}
+
+.submitBtn:hover {
+    background: linear-gradient(90deg, #FFD700 0%, #FBDE79 50%, #FFD700 100%);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submitBtn:active {
+    transform: scale(0.98);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+    width: 90%; /* Reduced width for better alignment */
+    min-height: 50px; /* Smaller height */
+    background: rgba(255, 223, 186, 0.1); /* Softer background */
+    border: 1px solid #FBDE79; /* Thinner border */
+    border-radius: 5px; /* Less rounded corners */
+    padding: 8px; /* Reduced padding */
+    font-size: 14px; /* Smaller font size */
+    color: #FBDE79; /* Matching text color */
+    font-family: 'Charm', cursive;
+    resize: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+textarea::placeholder {
+    color: rgba(251, 222, 121, 0.6); /* Softer placeholder color */
+    font-size: 14px; /* Smaller placeholder text */
+    font-style: italic;
+}
+
+textarea:focus {
+    background: rgba(255, 223, 186, 0.2); /* Slightly brighter on focus */
+    border-color: #FFD700; /* Brighter gold when focused */
+    box-shadow: 0px 0px 5px rgba(255, 215, 0, 0.3); /* Softer focus shadow */
+}
+
 
 .info
 {
