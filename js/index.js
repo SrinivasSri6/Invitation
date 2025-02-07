@@ -204,7 +204,7 @@ function submitMessage() {
     let brideMessage = document.getElementById("brideMessage").value;
 
     if (!groomMessage || !brideMessage) {
-        alert("Please enter messages for both Groom and Bride.");
+        alert("rendu perukum wish panalamee..!");
         return;
     }
 
@@ -224,7 +224,7 @@ function submitMessage() {
         }
     })
     .then(() => {
-        alert("Your message has been submitted!");
+        alert("Thankew, See you at the wedding!");
         document.getElementById("groomMessage").value = "";
         document.getElementById("brideMessage").value = "";
     })
