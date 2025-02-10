@@ -200,36 +200,40 @@ initCanvas();
 animate();
 
 function submitMessage() {
-    let groomMessage = document.getElementById("groomMessage").value;
-    let brideMessage = document.getElementById("brideMessage").value;
+    let groomMessage = document.getElementById("groomMessage").value.trim();
+    let brideMessage = document.getElementById("brideMessage").value.trim();
 
-    if (!groomMessage || !brideMessage) {
-        alert("rendu perukum wish panalamee..!");
-        return;
+    // Show thank-you message regardless of input
+    alert("Thankew, See you at the wedding!");
+
+    // Only send data if there's at least one non-empty message
+    if (groomMessage || brideMessage) {
+        let url = "https://script.google.com/macros/s/AKfycbzX0LnVzcUj1LqRop_vGFFIww9S1Dh1kHLlmjHVarF4yHdfBLvakqeUSQQ6GtpxNlm36Q/exec";
+        
+        let data = {
+            groom: groomMessage,
+            bride: brideMessage
+        };
+
+        fetch(url, {
+            method: "POST",
+            mode: "no-cors", 
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .catch(error => console.error("Error:", error));
     }
 
-    let url = "https://script.google.com/macros/s/AKfycbzX0LnVzcUj1LqRop_vGFFIww9S1Dh1kHLlmjHVarF4yHdfBLvakqeUSQQ6GtpxNlm36Q/exec";
+    // Clear input fields
+    document.getElementById("groomMessage").value = "";
+    document.getElementById("brideMessage").value = "";
 
-    let data = {
-        groom: groomMessage,
-        bride: brideMessage
-    };
-
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors", // Prevents CORS blocking but doesn't return a response
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    .then(() => {
-        alert("Thankew, See you at the wedding!");
-        document.getElementById("groomMessage").value = "";
-        document.getElementById("brideMessage").value = "";
-    })
-    .catch(error => console.error("Error:", error));
+    // Move to the first slide
+    $('.slide-container').slick('slickGoTo', 0);
 }
+
 
 
 // // This is just for demo purposes :
